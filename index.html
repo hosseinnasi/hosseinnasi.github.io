@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hossein Nasiri | Wireless & Spectrum Sharing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Hossein Nasiri – Ph.D. student in Electrical Engineering at the University of Notre Dame, working on spectrum sharing, Wi-Fi 6E/5G coexistence, and GNSS-based indoor/outdoor classification."
+  />
+
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f3f4f6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ====== LAYOUT ====== */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ====== NAVBAR ====== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: #e5e7eb;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav a:hover {
+      background: #d1d5db;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* ====== HERO / PROFILE ====== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 1.75rem;
+      padding: 1.75rem 1.5rem;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-main h1 {
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-main h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #4b5563;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-main p {
+      font-size: 0.98rem;
+      color: #374151;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.9rem 0 0.8rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      white-space: nowrap;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .pill-link span.icon {
+      font-size: 1rem;
+    }
+
+    .pill-link:hover {
+      background: #e5f0ff;
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1d4ed8, #22c55e);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+      padding: 0.75rem;
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #4b5563;
+      margin-bottom: 0.75rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .stack {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .item-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.2rem 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .item-sub {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    ul {
+      margin-left: 1.1rem;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    li + li {
+      margin-top: 0.15rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1rem;
+      }
+
+      .hero-main h1 {
+        font-size: 1.6rem;
+      }
+
+      .page {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ===== NAVBAR ===== -->
+    <header>
+      <div>
+        <strong>Hossein Nasiri</strong><br />
+        <span style="font-size: 0.9rem; color: #4b5563;">
+          Ph.D. Student · Electrical Engineering · University of Notre Dame
+        </span>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="about">
+      <div class="hero-main">
+        <h1>Hossein Nasiri</h1>
+        <h2>Machine Learning for Spectrum Sharing & Wireless Coexistence</h2>
+        <p>
+          I am a Ph.D. student in Electrical Engineering at the University of Notre Dame.
+          My research focuses on
+          <strong>Wi-Fi 6E / 5G coexistence</strong>,
+          <strong>GNSS-based indoor/outdoor and containment detection</strong>, and
+          <strong>ns-3 simulation</strong> of spectrum sharing scenarios.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Spectrum Sharing</span>
+          <span class="tag">Wi-Fi 6E & NR-U</span>
+          <span class="tag">GNSS C/N₀ Analytics</span>
+          <span class="tag">ns-3 Simulation</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+
+        <div class="hero-links">
+          <!-- TODO: replace with your real email and links -->
+          <a class="pill-link" href="mailto:hosseinnasiri@nd.edu">
+            <span class="icon">📧</span><span>Email</span>
+          </a>
+          <a class="pill-link" href="https://www.linkedin.com/in/hossein-nasiri" target="_blank">
+            <span class="icon">💼</span><span>LinkedIn</span>
+          </a>
+          <a class="pill-link" href="https://github.com/hosseinnasiri" target="_blank">
+            <span class="icon">💻</span><span>GitHub</span>
+          </a>
+          <!-- If you have a PDF CV, host it and link it here -->
+          <!-- <a class="pill-link" href="cv_hossein_nasiri.pdf" target="_blank">
+            <span class="icon">📄</span><span>CV</span>
+          </a> -->
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-circle">
+          <div class="photo-inner">
+            <!-- TODO: Replace this with an actual <img> of you if you want -->
+            Your photo here<br /> (square image works best)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESEARCH ===== -->
+    <section id="research">
+      <h3 class="section-title">Research</h3>
+      <div class="card stack">
+        <div>
+          <div class="item-heading">
+            <span>GNSS-Driven Indoor/Outdoor and Containment Classification</span>
+            <span class="item-meta">2024–Present</span>
+          </div>
+          <div class="item-sub">Wireless Institute, University of Notre Dame</div>
+          <ul>
+            <li>
+              Collect GNSS and Wi-Fi data across multiple cities using a custom Android app
+              to study how signal behavior relates to indoor, outdoor, and “containment” levels.
+            </li>
+            <li>
+              Train machine learning models (including multiple-instance learning) to infer
+              environment labels from C/N₀, satellite geometry, and Wi-Fi features.
+            </li>
+            <li>
+              Deploy models on Android using ONNX Runtime for on-device inference and demos.
+            </li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">GNSS</span>
+            <span class="pill">Indoor/Outdoor</span>
+            <span class="pill">Containment</span>
+            <span class="pill">ML & ONNX</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="item-heading">
+            <span>Wi-Fi 6E / NR-U Coexistence in 6 GHz</span>
+            <span class="item-meta">2023–Present</span>
+          </div>
+          <div class="item-sub">Stadium and indoor/outdoor scenarios in ns-3</div>
+          <ul>
+            <li>
+              Build large-scale ns-3 scenarios with Wi-Fi 6E APs and user devices in
+              indoor, outdoor, and stadium environments, using the Buildings module.
+            </li>
+            <li>
+              Log A-MPDU structure, TxOp duration, RSSI, and flow statistics to study
+              contention and interference between LPI/SP devices and incumbents.
+            </li>
+            <li>
+              Investigate how containment and deployment geometry affect coexistence.
+            </li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">ns-3</span>
+            <span class="pill">Wi-Fi 6E</span>
+            <span class="pill">NR-U</span>
+            <span class="pill">Coexistence</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="item-heading">
+            <span>Measurement-Driven Spectrum Sharing & Policy</span>
+          </div>
+          <div class="item-sub">Mid-band spectrum, 6 GHz, and CBRS</div>
+          <ul>
+            <li>
+              Analyze measurement campaigns for Wi-Fi 6E and CBRS deployments to inform
+              mid-band spectrum-sharing policies and standards discussions.
+            </li>
+            <li>
+              Use geospatial tools and visualization (Python, GIS, Google Earth) to
+              communicate RF behavior to both technical and policy audiences.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+      <h3 class="section-title">Selected Projects</h3>
+      <div class="card stack">
+        <div>
+          <div class="item-heading">
+            <span>SigCap: GNSS + Wi-Fi Android Data Collection App</span>
+          </div>
+          <div class="item-meta">Android · Kotlin/Java · ONNX Runtime</div>
+          <ul>
+            <li>
+              Developed an Android app to log GNSS C/N₀, satellite IDs, azimuth/elevation,
+              Wi-Fi RSSI, and cellular information with accurate timestamps.
+            </li>
+            <li>
+              Integrated an ONNX model into the app for real-time indoor/outdoor
+              and containment predictions on the device.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="item-heading">
+            <span>Notre Dame Stadium Wi-Fi 6E Dataset</span>
+          </div>
+          <div class="item-meta">Gameday data collection · 6 GHz</div>
+          <ul>
+            <li>
+              Collected Wi-Fi 6E data across bowl seating, concourses, suites, and nearby
+              indoor spaces during a football gameday.
+            </li>
+            <li>
+              Processed RSSI, number of APs, and channel usage statistics to feed ns-3
+              simulations and analysis of dense deployments.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="item-heading">
+            <span>GNSS Multi-City Visualization</span>
+          </div>
+          <div class="item-meta">Python · KML · Google Earth</div>
+          <ul>
+            <li>
+              Built tools to convert GNSS logs from multiple cities into 3D trajectories
+              and overlays for Google Earth.
+            </li>
+            <li>
+              Visualized how signal strength and satellite visibility change across indoor,
+              urban, and open environments.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section id="publications">
+      <h3 class="section-title">Publications & Submissions</h3>
+      <div class="card">
+        <ul>
+          <!-- TODO: Replace with your real citation list -->
+          <li>
+            S. Dogan-Tusha, A. Tusha, M. I. Rochman, <strong>H. Nasiri</strong>, J. R. Palathinkal, et al.,
+            “Evaluation of Indoor/Outdoor Sharing in the Unlicensed 6 GHz Band,”
+            <em>IEEE DySPAN</em>, 2025.
+          </li>
+          <li>
+            <strong>H. Nasiri</strong>, et al.,
+            “GNSS-Driven Containment Estimation for Indoor/Outdoor Spectrum Sharing,”
+            in preparation, 2025.
+          </li>
+          <li>
+            <strong>H. Nasiri</strong>, et al.,
+            “Wi-Fi 6E and NR-U Coexistence in Dense Stadium Deployments,”
+            in preparation, 2025.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== TEACHING ===== -->
+    <section id="teaching">
+      <h3 class="section-title">Teaching</h3>
+      <div class="card">
+        <p class="item-sub" style="margin-bottom: 0.5rem;">
+          I have assisted with both undergraduate and graduate courses related to
+          wireless systems, signal processing, and probability.
+        </p>
+        <ul>
+          <li><strong>Undergraduate:</strong> Electric Circuits, Digital Systems / Logic, Signals and Systems, Introduction to DSP</li>
+          <li><strong>Graduate:</strong> Wireless Systems, Probability and Random Variables, Regression / Data Analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <div class="card">
+        <p>
+          The best way to reach me is by email:
+          <!-- TODO: replace with your preferred address -->
+          <a href="mailto:hosseinnasiri@nd.edu">hosseinnasiri@nd.edu</a>.
+        </p>
+        <p>
+          You can also find me on
+          <a href="https://www.linkedin.com/in/hossein-nasiri" target="_blank">LinkedIn</a>
+          and
+          <a href="https://github.com/hosseinnasiri" target="_blank">GitHub</a>.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Hossein Nasiri
+    </footer>
+  </div>
+
+  <script>
+    // Simple script to always show current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
