@@ -2,118 +2,295 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hossein Nasiri | Personal Website</title>
+  <title>Hossein Nasiri | Wireless & Spectrum Sharing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
-    }
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-    header {
-      margin-bottom: 24px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .subtitle {
-      color: #4b5563;
-      font-size: 0.95rem;
-    }
-    .hero {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-      margin-bottom: 24px;
-    }
-    .hero p {
-      margin-top: 8px;
-      font-size: 0.95rem;
-    }
-    .links a {
-      display: inline-block;
-      margin-right: 10px;
-      margin-top: 10px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .links a:hover {
-      background: #e5f0ff;
-    }
-    h2 {
-      font-size: 1.2rem;
-      margin-top: 24px;
-      margin-bottom: 8px;
-    }
-    ul {
-      padding-left: 18px;
-      font-size: 0.95rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page">
-    <header>
-      <h1>Hossein Nasiri</h1>
-      <div class="subtitle">
-        Ph.D. Student · Electrical Engineering · University of Notre Dame
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1 class="name">Hossein Nasiri</h1>
+        <p class="tagline">
+          Ph.D. Student · Electrical Engineering · University of Notre Dame
+        </p>
       </div>
-    </header>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#activities">Activities</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
+  <main class="container main-content">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
       <h2>About Me</h2>
       <p>
-        I work on <strong>spectrum sharing</strong>, <strong>Wi-Fi 6E / 5G coexistence</strong>,
-        and <strong>GNSS-based indoor/outdoor detection</strong>. I use
-        <strong>machine learning</strong> and <strong>ns-3 simulations</strong> to study how
-        wireless systems can share spectrum more intelligently.
+        I am a third-year Ph.D. student in Electrical Engineering at the
+        University of Notre Dame. My research focuses on
+        measurement-driven and machine-learning approaches for wireless
+        spectrum sharing, including GNSS-based environment sensing,
+        indoor/outdoor and containment classification, Wi-Fi 6E coexistence
+        modeling, and CBRS/5G interference analysis. I am eager to apply my
+        expertise in wireless systems, data-driven modeling, and large-scale
+        experimentation to solve real-world connectivity and coexistence
+        challenges.
       </p>
-      <div class="links">
+
+      <div class="about-links">
         <a href="mailto:hosseinnasiri@nd.edu">📧 Email</a>
-        <a href="https://www.linkedin.com/in/hosseinnasiri" target="_blank">💼 LinkedIn</a>
-        <a href="https://github.com/hosseinnasri" target="_blank">💻 GitHub</a>
+        <a href="https://github.com/hosseinnasi" target="_blank">💻 GitHub</a>
+        <a href="https://linkedin.com/in/hossein--nasiri/" target="_blank">💼 LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=kct904YAAAAJ" target="_blank">📚 Google Scholar</a>
       </div>
     </section>
 
-    <section>
-      <h2>Research Areas</h2>
-      <ul>
-        <li>Wi-Fi 6E / NR-U coexistence in the 6 GHz band</li>
-        <li>GNSS C/N₀ analytics for indoor/outdoor and containment</li>
-        <li>ns-3 modeling of stadium and indoor deployments</li>
-        <li>Machine learning models deployed on Android (ONNX)</li>
-      </ul>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Core Projects & Research</h2>
+
+      <!-- 1. GNSS I/O -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/gnss-io.jpg" alt="GNSS indoor/outdoor classification visual" />
+        </div>
+        <div class="project-body">
+          <h3>GNSS Indoor/Outdoor (I/O) Classification & SigCap Android Deployment</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2024–Present ·
+            <strong>Tools:</strong> Python (NumPy, Scikit-learn, TensorFlow, ONNX Runtime),
+            SigCap, Android Studio, Java
+          </p>
+          <p>
+            Built large multi-city GNSS datasets across the US, Europe, and Asia using SigCap.
+            Engineered C/N₀ features, elevation-weighted metrics, and temporal bagging for
+            indoor/outdoor classification. Deployed ONNX models on-device inside SigCap for
+            real-time Android-based I/O inference, using multi-instance learning to improve
+            performance in near-window and urban-canyon conditions.
+          </p>
+        </div>
+      </article>
+
+      <!-- 2. Hybrid Wi-Fi + Cellular I/O -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/hybrid-io.jpg" alt="Hybrid Wi-Fi and cellular indoor/outdoor classification" />
+        </div>
+        <div class="project-body">
+          <h3>Wi-Fi + Cellular Hybrid Indoor/Outdoor Classification</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2024–2025 ·
+            <strong>Tools:</strong> Python, MATLAB, Android Studio, Java
+          </p>
+          <p>
+            Combined GNSS features with Wi-Fi RSSI/AP density and cellular RSRP/RSRQ to build
+            hybrid multi-radio classifiers. Collected synchronized Wi-Fi + LTE/5G + GNSS logs to
+            study signal decay, penetration, and AP visibility across transitions, showing clear
+            gains over single-radio models through multi-feature fusion.
+          </p>
+        </div>
+      </article>
+
+      <!-- 3. ns-3 Coexistence -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/ns3-coexistence.jpg" alt="ns-3 Wi-Fi 6E and NR-U coexistence scenario" />
+        </div>
+        <div class="project-body">
+          <h3>ns-3 Wi-Fi 6E, LPI/SP, and NR-U Coexistence Study</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2025–Present ·
+            <strong>Tools:</strong> ns-3, C++, Buildings module, Wi-Fi 6E & NR/NR-U modeling, Python
+          </p>
+          <p>
+            Developed detailed ns-3 scenarios to study coexistence between Wi-Fi 6E Low-Power
+            Indoor (LPI) and Standard Power (SP) devices under asymmetric transmit-power regimes.
+            Modeled Wi-Fi 6E and NR/NR-U coexistence in outdoor deployments to analyze interference,
+            channel access dynamics, and throughput degradation under varying AP/UE density, power
+            rules, and channel reuse.
+          </p>
+        </div>
+      </article>
+
+      <!-- 4. GNSS containment -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/gnss-containment.jpg" alt="GNSS containment levels illustration" />
+        </div>
+        <div class="project-body">
+          <h3>GNSS Containment Estimation for 6 GHz Spectrum Sharing</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2024–Present ·
+            <strong>Tools:</strong> Python, statistical modeling, KML/Google Earth visualization
+          </p>
+          <p>
+            Proposed a multi-level “containment” metric as an alternative to binary indoor/outdoor
+            labels for spectrum policy. Mapped C/N₀ attenuation, sky visibility, and temporal
+            variance to graded containment levels and trained supervised models to predict expected
+            6 GHz leakage, supporting Wi-Fi 6E LPI/SP coexistence rules.
+          </p>
+        </div>
+      </article>
+
+      <!-- 5. Wi-Fi 6E measurements -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/wifi6e-measurements.jpg" alt="Wi-Fi 6E measurement campaign at stadium and campus" />
+        </div>
+        <div class="project-body">
+          <h3>Wi-Fi 6E Real-World Measurement Campaign (Notre Dame & UMich)</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2023–2025 ·
+            <strong>Tools:</strong> MATLAB, Wireshark, QualiPoc, SigCap, Python, RF mapping
+          </p>
+          <p>
+            Collected extensive Wi-Fi 6E datasets across the University of Michigan Ann Arbor campus
+            and Notre Dame Stadium (seating, concourses, press box, indoor spaces). Measured RSSI,
+            AP density, BSSID diversity, and channel occupancy and used MATLAB/Python to compute
+            building entry loss, analyze leakage paths, and validate ns-3 LPI coexistence models.
+          </p>
+        </div>
+      </article>
+
+      <!-- 6. CBRS/5G coexistence -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="images/cbrs-coexistence.jpg" alt="CBRS and 5G C-band coexistence analysis" />
+        </div>
+        <div class="project-body">
+          <h3>CBRS (3.5 GHz) Coexistence & 5G C-Band Interference Study</h3>
+          <p class="project-meta">
+            <strong>Years:</strong> 2024–2025 ·
+            <strong>Tools:</strong> QualiPoc, PRiSM/SDR, SigCap, Python, MATLAB
+          </p>
+          <p>
+            Performed a real-world coexistence study of CBRS GAA deployments in South Bend, using
+            QualiPoc, PRiSM/SDR scans, and SigCap logs to measure RSRP/RSRQ, throughput, MCS, and
+            adjacent-channel interference from 5G C-band. Identified co-channel interference from
+            channel reuse and showed how frequency reassignment improves performance relative to
+            static SAS allocations.
+          </p>
+        </div>
+      </article>
     </section>
 
-    <section>
-      <h2>Selected Projects</h2>
-      <ul>
-        <li>SigCap Android app for GNSS + Wi-Fi data collection and on-device ML inference.</li>
-        <li>Notre Dame Stadium Wi-Fi 6E gameday measurement and analysis.</li>
-        <li>GNSS multi-city dataset with 3D visualizations in Google Earth.</li>
-      </ul>
-    </section>
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
+      <h2>Selected Publications</h2>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        The best way to reach me is via email:
-        <a href="mailto:hosseinnasiri@nd.edu">hosseinnasiri@nd.edu</a>.
+      <div class="pub-item">
+        <p class="pub-title">
+          Data Driven Environment Classification Using Wireless Signals
+        </p>
+        <p class="pub-authors">
+          <strong>H. Nasiri</strong>, S. Tusha, M. I. Rochman, M. Ghosh
+        </p>
+        <p class="pub-venue">
+          ACM MobiCom ’24, Washington, D.C., 2024.
+          <a href="https://doi.org/10.1145/3636534.3697319" target="_blank">doi:10.1145/3636534.3697319</a>
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-title">
+          Indoor/Outdoor Spectrum Sharing Enabled by GNSS-based Classifiers
+        </p>
+        <p class="pub-authors">
+          <strong>H. Nasiri</strong>, M. I. Rochman, M. Ghosh
+        </p>
+        <p class="pub-venue">
+          IEEE MILCOM 2025.
+          <a href="https://arxiv.org/abs/2509.26500" target="_blank">arXiv:2509.26500</a>
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-title">
+          Smartphone-Based Indoor/Outdoor Inference: A SigCap Approach (Demo)
+        </p>
+        <p class="pub-authors">
+          <strong>H. Nasiri</strong>, M. I. Rochman, M. Ghosh
+        </p>
+        <p class="pub-venue">
+          Demo accepted at IEEE MILCOM 2025.
+        </p>
+      </div>
+
+      <p class="pub-more">
+        Full and updated publication list available on
+        <a href="https://scholar.google.com/citations?user=kct904YAAAAJ" target="_blank">Google Scholar</a>.
       </p>
     </section>
-  </div>
+
+    <!-- ACTIVITIES -->
+    <section id="activities" class="section">
+      <h2>Professional Activities & Mentoring</h2>
+
+      <div class="activity-item">
+        <p class="activity-title">
+          ARA Fest Participant and Travel Grant Recipient (2024, 2025)
+        </p>
+        <p>
+          Attended ARA Fest as a funded participant, gaining exposure to ARA’s end-to-end,
+          programmable O-RAN SDR infrastructure, BYOD experimentation, and NextG/URLLC/XR
+          research workflows.
+        </p>
+      </div>
+
+      <div class="activity-item">
+        <p class="activity-title">
+          Undergraduate Research Mentor, SpectrumX REU+ Program (Summer 2024)
+        </p>
+        <p>
+          Mentored an undergraduate student in wireless measurements, data analysis, and
+          indoor/outdoor environment characterization within the SpectrumX REU+ program.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="section">
+      <h2>Teaching Experience</h2>
+      <ul>
+        <li>
+          <strong>Undergraduate (Shiraz University):</strong>
+          Logic Circuits Lab, Communication Systems, Digital Communication, Antenna Theory,
+          Microwave Engineering, Signals and Systems
+        </li>
+        <li>
+          <strong>Master’s (Sharif University of Technology):</strong>
+          Principles of Electrical Engineering, Telecommunications
+        </li>
+        <li>
+          <strong>Ph.D. (University of Notre Dame):</strong>
+          Probability and Random Phenomena (two terms), Wireless Communication
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>
+        The best way to reach me is by email:
+        <a href="mailto:hnasiri2@nd.edu">hnasiri2@nd.edu</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Hossein Nasiri</small>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
 </body>
 </html>
